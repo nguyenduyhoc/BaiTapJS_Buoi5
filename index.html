@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <!-- Quản lý tuyển sinh  -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        Quản lý tuyển sinh
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <h3>Nhập số điểm</h3>
+                            <div class="form-group">
+                                <label>Môn 1:</label>
+                                <input id="txtDiem1" type="number" placeholder="Điểm">
+                            </div>
+                            <div class="form-group">
+                                <label>Môn 2:</label>
+                                <input id="txtDiem2" type="number" placeholder="Điểm">
+                            </div>
+                            <div class="form-group">
+                                <label>Môn 3:</label>
+                                <input id="txtDiem3" type="number" placeholder="Điểm">
+                            </div>
+                            <div class="form-group">
+                                <label>Điểm chuẩn của hội đồng:</label>
+                                <input id="txtDiemChuan" type="number" placeholder="Điểm">
+                            </div>
+                            <div class="form-group">
+                                <label>Khu vực ưu tiên:</label>
+                                <select id="txtDiemKhuVucUuTien">
+                                    <option value="0">X</option>
+                                    <option value="2">A</option>
+                                    <option value="1">B</option>
+                                    <option value="0.5">C</option>                             
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Đối tượng ưu tiên:</label>
+                                <select id="txtDiemDoiTuongUuTien">
+                                    <option value="0">0</option>
+                                    <option value="2.5">1</option>
+                                    <option value="1.5">2</option>
+                                    <option value="1">3</option>
+                                </select>
+                            </div>
+                            <button onclick="ketQua(event)" type="submit" class="btn btn-success">Kết quả</button>
+                        </form>
+                    </div>
+                    <div id="txtKetQua" class="card-footer text-muted">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+
+    <!-- Tính tiền điện  -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        Tính tiền điện
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <h3>Thông tin tiêu thụ điện</h3>
+                            <div class="form-group">
+                                <label>Tên :</label>
+                                <input id="txtTen" type="text" placeholder="Tên">
+                            </div>
+                            <div class="form-group">
+                                <label>Số Kw :</label>
+                                <input id="txtSoKW" type="number" placeholder="Kw">
+                            </div>
+                            <button onclick="tinhTien(event)" type="submit" class="btn btn-success">Tính tiền</button>
+                        </form>
+                    </div>
+                    <div id="txtTinhTien" class="card-footer text-muted">
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+
+    <!-- Tính tiền cáp  -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        Tính tiền cáp
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div class="form-group">
+                                <label>Mã Khách hàng :</label>
+                                <input id="txtMaKhachHang" type="text" placeholder="Mã khách hàng">
+                            </div>
+                            <div class="form-group">
+                                <label>Số tài khoản:</label>
+                                <input id="txtSoTaiKhoan" type="number" placeholder="Số tk">
+                            </div>
+                            <button onclick="xuatThongTin(event)" type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">Thông tin</button>
+                        </form>
+                    </div>
+                    <div class="card-footer text-muted">
+                        <div class="container">
+                            <!-- The Modal -->
+                            <div class="modal" id="myModal">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+
+                                        <!-- Modal Header -->
+                                        <div class="modal-header">
+                                            <h4 class="modal-title">Mức giá:</h4>
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        </div>
+
+                                        <!-- Modal body -->
+                                        <div id="txtThongTin" class="modal-body">
+
+                                        </div>
+
+                                        <!-- Modal footer -->
+                                        <div class="modal-footer">
+                                            <div class="container">
+                                                <h6>Phần dành cho doanh nghiệp</h6>
+                                                <div>
+                                                    <label>Số lượng kết nối bạn muốn sử dụng:</label>
+                                                    <input id="txtSoLuong" type="number" placeholder="@connect">
+                                                </div>
+                                                <div id="txtTongTien"></div>
+                                            </div>
+                                            <div>
+                                                <button onclick="taoKetNoi()" type="button" class="btn btn-success">Tạo </button>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js " integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo " crossorigin="anonymous "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js " integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1 " crossorigin="anonymous "></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js " integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM " crossorigin="anonymous "></script>
+
+    <script src="./js/QuanLyTuyenSinh.js "></script>
+    <script src="./js/TinhTienDien.js "></script>
+    <script src="./js/TinhTiepCap.js "></script>
+</body>
+
+</html>
